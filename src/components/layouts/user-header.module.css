@@ -1,0 +1,47 @@
+.heroOverlay {
+        background-color: rgba(0, 0, 0, 0.4);
+}
+
+.bgForest {
+        background-color: #2B5329;
+}
+
+.bgCampfire {
+        background-color: #D86C4F;
+}
+
+.bgCanvas {
+        background-color: #F4F1DE;
+}
+
+.bgSage {
+        background-color: #7C9885;
+}
+
+.textForest {
+        color: #2B5329;
+}
+
+.textCampfire {
+        color: #D86C4F;
+}
+
+.textCharcoal {
+        color: #333333;
+}
+
+.textSage {
+        color: #7C9885;
+}
+
+.borderForest {
+        border-color: #2B5329;
+}
+
+.borderFampfire {
+        border-color: #D86C4F;
+}
+
+.borderSage {
+        border-color: #7C9885;
+}
