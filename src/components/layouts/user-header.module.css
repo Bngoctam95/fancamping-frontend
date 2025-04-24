@@ -1,47 +1,33 @@
-.heroOverlay {
-        background-color: rgba(0, 0, 0, 0.4);
+.loginButton {
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--secondary-color);
+    opacity: 0.9;
+  }
 }
 
-.bgForest {
-        background-color: #2B5329;
+.navLink {
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.bgCampfire {
-        background-color: #D86C4F;
+.navLink:hover {
+  color: var(--secondary-color);
 }
 
-.bgCanvas {
-        background-color: #F4F1DE;
+.navLink.active {
+  color: var(--secondary-color);
 }
 
-.bgSage {
-        background-color: #7C9885;
-}
-
-.textForest {
-        color: #2B5329;
-}
-
-.textCampfire {
-        color: #D86C4F;
-}
-
-.textCharcoal {
-        color: #333333;
-}
-
-.textSage {
-        color: #7C9885;
-}
-
-.borderForest {
-        border-color: #2B5329;
-}
-
-.borderFampfire {
-        border-color: #D86C4F;
-}
-
-.borderSage {
-        border-color: #7C9885;
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background-color: var(--secondary-color);
 }

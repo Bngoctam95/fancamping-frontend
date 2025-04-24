@@ -1,16 +1,22 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Tent, Menu, X } from "lucide-react";
 import { useState } from 'react';
 import { Button } from '../ui/button';
+import styles from './user-header.module.css';
 
 export default function UserHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  const isActive = (path: string) => pathname === path;
 
   return (
     <header className="bg-forest text-white shadow-md">
@@ -37,33 +43,54 @@ export default function UserHeader() {
           <nav className={`${mobileMenuOpen ? 'block' : 'hidden'} md:block w-full md:w-auto mt-4 md:mt-0`}>
             <ul className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-6">
               <li>
-                <Link href="/" className={`block px-3 py-2 rounded font-montserrat font-medium`}>
+                <Link
+                  href="/"
+                  className={`${styles.navLink} block px-3 py-2 rounded font-montserrat font-medium ${isActive('/') ? styles.active : ''}`}
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/rentals" className={`block px-3 py-2 rounded font-montserrat font-medium`}>
+                <Link
+                  href="/rentals"
+                  className={`${styles.navLink} block px-3 py-2 rounded font-montserrat font-medium ${isActive('/rentals') ? styles.active : ''}`}
+                >
                   Rentals
                 </Link>
               </li>
               <li>
-                <Link href="/blogs" className={`block px-3 py-2 rounded font-montserrat font-medium`}>
+                <Link
+                  href="/blogs"
+                  className={`${styles.navLink} block px-3 py-2 rounded font-montserrat font-medium ${isActive('/blogs') ? styles.active : ''}`}
+                >
                   Blogs
                 </Link>
               </li>
               <li>
-                <Link href="/articles" className={`block px-3 py-2 rounded font-montserrat font-medium`}>
+                <Link
+                  href="/articles"
+                  className={`${styles.navLink} block px-3 py-2 rounded font-montserrat font-medium ${isActive('/articles') ? styles.active : ''}`}
+                >
                   Articles
                 </Link>
               </li>
-
-              <li>
-                <Link href="/auth">
-                  <Button className="bg-campfire hover:bg-opacity-90 font-montserrat font-medium">
-                    Login
-                  </Button>
-                </Link>
-              </li>
+              {isLoggedIn ? (
+                <li>
+                  <Link href="">
+                    <Button className={`${styles.loginButton} bg-campfire font-montserrat font-medium`}>
+                      aaa
+                    </Button>
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link href="/auth">
+                    <Button className={`${styles.loginButton} bg-campfire font-montserrat font-medium`}>
+                      Login
+                    </Button>
+                  </Link>
+                </li>
+              )}
             </ul>
           </nav>
         </div>
